@@ -51,6 +51,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return mov.data.movies.size();
     }
 
+    public void addmore(movies mov) {
+        int oldLastIndex = mov.data.movies.size() - 1;
+        this.mov.data.movies.addAll(mov.data.movies);
+        notifyItemRangeChanged(oldLastIndex, this.mov.data.movies.size() - 1);
+
+    }
+
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView mov_name, mov_summary;
